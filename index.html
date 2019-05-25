@@ -15,27 +15,50 @@
 		<link rel="stylesheet" href="./index.css" />
 	</head>
 	<body>
-		<div class="menu">
-			<ul>
-				<li>
-					<p>What timeframe are you working?</p>
-					<select name="workTime" id="work">
-						<option value=""></option>
+		<!-- BEGIN main container -->
+		<div class="main">
+			<!-- BEGIN sidebar menu -->
+			<div id="slider" class="clock__slider">
+				<!-- BEGIN selections html -->
+				<div id="work" class="clock__setting">
+					<p class="setting__text">When will you work?</p>
+					<select name="work" id="work_selection">
+						<option value="6-8">6am to 8am</option>
+						<option value="7-9">7am to 9am</option>
+						<option value="8-10">8am to 10am</option>
+						<option value="9-11">9am to 11am</option>
 					</select>
-				</li>
-				<li>
-					<p>When should you be studying?</p>
-					<select name="studyTime" id="study">
-						<option value=""></option>
+				</div>
+
+				<div id="study" class="clock__setting">
+					<p class="setting__text">When will you study?</p>
+					<select name="study" id="study_selection">
+						<option value="9-2">9am to 2pm</option>
+						<option value="10-3">10am to 3pm</option>
+						<option value="11-4">11am to 4pm</option>
+						<option value="12-5">12pm to 5pm</option>
 					</select>
-				</li>
-				<li>
-					<p>Around what time are you cooking?</p>
-					<select name="cookTime" id="cook">
-						<option value=""></option>
+				</div>
+
+				<div id="relax" class="clock__setting">
+					<p class="setting__text">When will you relax?</p>
+					<select name="relax" id="relax_selection">
+						<option value="3-9">3pm to 9pm</option>
+						<option value="4-10">4pm to 10pm</option>
+						<option value="5-10">5pm to 10pm</option>
+						<option value="6-10">6pm to 10pm</option>
 					</select>
-				</li>
-			</ul>
+				</div>
+				<!-- END selections html -->
+			</div>
+			<!-- END slide html -->
+
+			<!-- BEGIN Clock HTML -->
+			<div class="clock">
+				<h1 class="real__time">09:48</h1>
+				<p class="clock__msg">Getting paid</p>
+			</div>
+			<!-- END clock html -->
 		</div>
 		<div class="main-bg">
 			<div class="clock"></div>
