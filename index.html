@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+		<title>Clock Project</title>
+
+		<link
+			rel="stylesheet"
+			href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+			integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+			crossorigin="anonymous"
+		/>
+		<link rel="stylesheet" href="./index.css" />
+	</head>
+	<body>
+		<div class="menu">
+			<ul>
+				<li>
+					<p>What timeframe are you working?</p>
+					<select name="workTime" id="work">
+						<option value=""></option>
+					</select>
+				</li>
+				<li>
+					<p>When should you be studying?</p>
+					<select name="studyTime" id="study">
+						<option value=""></option>
+					</select>
+				</li>
+				<li>
+					<p>Around what time are you cooking?</p>
+					<select name="cookTime" id="cook">
+						<option value=""></option>
+					</select>
+				</li>
+			</ul>
+		</div>
+		<div class="main-bg">
+			<div class="clock"></div>
+		</div>
+		<script src="./index.js"></script>
+	</body>
+</html>
