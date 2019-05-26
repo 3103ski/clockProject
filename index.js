@@ -1,13 +1,12 @@
-// DOMstrings
 const DOMstrings = {
 	arrow: document.querySelector('.menu__arrow'),
 	updateBtn: document.querySelector('.update__clock'),
 	realTime: document.querySelector('.real__time'),
 	clockMsg: document.querySelector('.clock__msg'),
-	workVal: document.querySelector('.work__val'),
-	studyVal: document.querySelector('.study__val'),
-	relaxVal: document.querySelector('.relax__val'),
-	body: document.querySelector('.main'),
+	workVal: document.querySelector('.work__drop'),
+	studyVal: document.querySelector('.study__drop'),
+	relaxVal: document.querySelector('.relax__drop'),
+	main: document.querySelector('.main'),
 	menu: document.querySelector('.side__menu'),
 	settings: document.querySelector('.setting__container'),
 	settingsAll: document.querySelectorAll('.setting__container'),
@@ -21,7 +20,26 @@ const DOMstrings = {
 const updateClock = () => {
 	const now = new Date()
 	const hour = now.getHours()
-	const min = now.getMinutes()
+
+	const standardHour = () => {
+		let hour = now.getHours()
+		if (hour > 12) {
+			hour = hour - 12
+		} else {
+			hour = hour
+		}
+		return hour
+	}
+
+	const fullMin = () => {
+		let min = now.getMinutes()
+		if (min < 10) {
+			min = `0${min}`
+		} else {
+			min = min
+		}
+		return min
+	}
 
 	// fullSec keeps the seconds two digits when less than 10
 	const fullSec = () => {
@@ -34,7 +52,7 @@ const updateClock = () => {
 		return sec
 	}
 
-	let time = `${hour}:${min}:${fullSec()}`
+	let time = `${standardHour()}:${fullMin()}:${fullSec()}`
 
 	DOMstrings.realTime.innerHTML = time
 
@@ -83,7 +101,7 @@ const hideSettings = () => {
 }
 
 const openMenu = () => {
-	DOMstrings.body.style.marginLeft = '220px'
+	DOMstrings.main.style.marginLeft = '220px'
 	DOMstrings.menu.style.width = '220px'
 	DOMstrings.arrow.style.left = '165px'
 	DOMstrings.arrow.style.color = 'white'
@@ -94,7 +112,7 @@ const openMenu = () => {
 // CLOSE menu function
 
 const closeMenu = () => {
-	DOMstrings.body.style.marginLeft = '0px'
+	DOMstrings.main.style.marginLeft = '0px'
 	DOMstrings.menu.style.width = '0px'
 	DOMstrings.arrow.style.left = '20px'
 	DOMstrings.arrow.style.color = 'black'
@@ -108,6 +126,50 @@ const closeMenu = () => {
 // UPDATE IMG AND PHRASE
 ////////////////////////////////
 
-// connect each selection variable to corresponding phrase
+const calcDayState = () => {
+	const hour = new Date().getHours()
 
-// read time and which selection we are in to change phrase and BG
+	let workHour = parseInt(
+		DOMstrings.workVal.options[DOMstrings.workVal.selectedIndex].value
+	)
+	let studyHour = parseInt(
+		DOMstrings.studyVal.options[DOMstrings.studyVal.selectedIndex].value
+	)
+	let relaxHour = parseInt(
+		DOMstrings.relaxVal.options[DOMstrings.relaxVal.selectedIndex].value
+	)
+
+	if (hour === workHour && workHour !== studyHour && workHour !== relaxHour) {
+		DOMstrings.clockMsg.innerHTML = 'You should be working right now'
+		DOMstrings.main.style.backgroundImage = 'url(/../img/driving.jpg)'
+	}
+	if (hour === studyHour && studyHour !== workHour && studyHour !== relaxHour) {
+		DOMstrings.clockMsg.innerHTML = 'You should be studying right now'
+		DOMstrings.main.style.backgroundImage = 'url(/../img/study.jpg)'
+	}
+	if (hour === relaxHour && relaxHour !== workHour && relaxHour !== studyHour) {
+		DOMstrings.clockMsg.innerHTML = 'Take some time in a quiet room to relax'
+		DOMstrings.main.style.backgroundImage = 'url(/../img/relax.jpg)'
+	}
+	if (hour !== workHour && hour !== studyHour && hour !== relaxHour) {
+		DOMstrings.clockMsg.innerHTML = 'Do whatever you want!'
+		DOMstrings.main.style.backgroundImage = 'url(/../img/freeToDo.jpg)'
+	}
+	if (
+		relaxHour === studyHour ||
+		relaxHour === workHour ||
+		workHour === studyHour
+	) {
+		DOMstrings.clockMsg.innerHTML =
+			'Schedule conflicts. Adjust something in the menu!'
+		DOMstrings.main.style.backgroundImage = 'url(/../img/confused.jpg)'
+	}
+}
+
+window.addEventListener('load', () => {
+	calcDayState()
+})
+
+DOMstrings.updateBtn.addEventListener('click', () => {
+	calcDayState()
+})
