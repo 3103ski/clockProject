@@ -12,50 +12,66 @@
 			integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
 			crossorigin="anonymous"
 		/>
+		<link
+			rel="stylesheet"
+			href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"
+			integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay"
+			crossorigin="anonymous"
+		/>
 		<link rel="stylesheet" href="./index.css" />
 	</head>
 	<body>
 		<!-- BEGIN main container -->
 		<div class="main">
 			<!-- BEGIN sidebar menu -->
-			<div id="slider" class="clock__slider">
+			<div id="slider" class="side__menu">
+				<!-- Menu arrow -->
+				<i class="fas fa-arrow-circle-right menu__arrow fa-rotate-180"></i>
 				<!-- BEGIN selections html -->
-				<div id="work" class="clock__setting">
+				<div id="work" class="setting__container">
 					<p class="setting__text">When will you work?</p>
-					<select name="work" id="work_selection">
-						<option value="6-8">6am to 8am</option>
-						<option value="7-9">7am to 9am</option>
-						<option value="8-10">8am to 10am</option>
-						<option value="9-11">9am to 11am</option>
-					</select>
+					<div class="drop__menu">
+						<select name="work" id="work_selection_1" class="selection__drop">
+							<option value="0">6am to 8am</option>
+							<option value="1">7am to 9am</option>
+							<option value="2">8am to 10am</option>
+							<option value="3">9am to 11am</option>
+						</select>
+					</div>
 				</div>
 
-				<div id="study" class="clock__setting">
+				<div id="study" class="setting__container">
 					<p class="setting__text">When will you study?</p>
-					<select name="study" id="study_selection">
-						<option value="9-2">9am to 2pm</option>
-						<option value="10-3">10am to 3pm</option>
-						<option value="11-4">11am to 4pm</option>
-						<option value="12-5">12pm to 5pm</option>
-					</select>
+					<div class="drop__menu">
+						<select name="study" id="study_selection_2" class="selection__drop">
+							<option value="9-2">9am to 2pm</option>
+							<option value="10-3">10am to 3pm</option>
+							<option value="11-4">11am to 4pm</option>
+							<option value="12-5">12pm to 5pm</option>
+						</select>
+					</div>
 				</div>
 
-				<div id="relax" class="clock__setting">
+				<div id="relax" class="setting__container">
 					<p class="setting__text">When will you relax?</p>
-					<select name="relax" id="relax_selection">
-						<option value="3-9">3pm to 9pm</option>
-						<option value="4-10">4pm to 10pm</option>
-						<option value="5-10">5pm to 10pm</option>
-						<option value="6-10">6pm to 10pm</option>
-					</select>
+					<div class="drop__menu">
+						<select name="relax" id="relax_selection_3" class="selection__drop">
+							<option value="3-9">3pm to 9pm</option>
+							<option value="4-10">4pm to 10pm</option>
+							<option value="5-10">5pm to 10pm</option>
+							<option value="6-10">6pm to 10pm</option>
+						</select>
+					</div>
 				</div>
 				<!-- END selections html -->
+				<!-- Button to update clock -->
+				<button class="btn-success update__clock">Update Clock</button>
 			</div>
 			<!-- END slide html -->
 
 			<!-- BEGIN Clock HTML -->
 			<div class="clock">
-				<h1 class="real__time">09:48</h1>
+				<h1 class="real__time">09:48:36 AM</h1>
 				<p class="clock__msg">Getting paid</p>
 			</div>
 			<!-- END clock html -->
