@@ -164,6 +164,8 @@ const calcDayState = () => {
 			'Schedule conflicts. Adjust something in the menu!'
 		DOMstrings.main.style.backgroundImage = 'url(/../img/confused.jpg)'
 	}
+
+	setTimeout(calcDayState, 60000)
 }
 
 window.addEventListener('load', () => {
