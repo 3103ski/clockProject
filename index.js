@@ -18,11 +18,31 @@ const DOMstrings = {
 // CLOCK
 ////////////////
 
-// get time
+const updateClock = () => {
+	const now = new Date()
+	const hour = now.getHours()
+	const min = now.getMinutes()
 
-// display time in clock div
+	// fullSec keeps the seconds two digits when less than 10
+	const fullSec = () => {
+		let sec = now.getSeconds()
+		if (sec < 10) {
+			sec = `0${sec}`
+		} else {
+			sec = sec
+		}
+		return sec
+	}
 
-// keep clock moving
+	let time = `${hour}:${min}:${fullSec()}`
+
+	DOMstrings.realTime.innerHTML = time
+
+	// setTimeout will keep the clock moving
+	setTimeout(updateClock, 1000)
+}
+
+updateClock()
 
 ////////////////
 // SIDE MENU

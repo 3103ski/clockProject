@@ -1,13 +1,3 @@
-/* *******
-**********
-FONTS
-**********
- 'Ramabhadra', sans-serif;
- 'Indie Flower', cursive;
- 'Righteous', cursive;
- 'Amatic SC', cursive;
-/* ****** */
-
 /* Google Fonts */
 @import url('https://fonts.googleapis.com/css?family=Amatic+SC:400,700|Indie+Flower|Ramabhadra|Righteous&display=swap');
 
@@ -16,7 +6,7 @@ FONTS
 }
 
 /* *************** */
-/* Animation Class */
+/* Animations */
 /* *************** */
 
 .risingSelection {
